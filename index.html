@@ -10,9 +10,6 @@
 <!-- AOS Animation -->
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-<!-- Icons -->
-<script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 (function(){ emailjs.init("_SLDS4OXHSNQW734F"); })();
@@ -32,20 +29,31 @@
 }
 
 body{
-  font-family:'Poppins';
+  font-family:'Poppins',sans-serif;
   background:var(--bg);
   color:var(--text);
   transition:0.4s;
 }
 
+/* Toggle */
 .toggle{
-  position:fixed; top:20px; right:20px;
-  background:#6a5af9; color:white;
-  padding:10px; border-radius:8px;
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:#6a5af9;
+  color:white;
+  padding:10px;
+  border-radius:8px;
   cursor:pointer;
 }
 
-/* PROFILE FLIP */
+/* Header */
+header{
+  text-align:center;
+  padding:60px 20px;
+}
+
+/* Profile Flip */
 .profile-container{
   perspective:1000px;
   width:200px;
@@ -62,7 +70,7 @@ body{
   transform:rotateY(180deg);
 }
 
-.front, .back{
+.front,.back{
   position:absolute;
   width:100%;
   backface-visibility:hidden;
@@ -70,13 +78,7 @@ body{
 
 .back{
   transform:rotateY(180deg);
-  text-align:center;
   padding-top:60px;
-}
-
-header{
-  text-align:center;
-  padding:40px;
 }
 
 header img{
@@ -84,17 +86,24 @@ header img{
   border-radius:50%;
 }
 
-/* GRID */
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+/* Sections */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
 }
 
+h2{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+/* Cards */
 .card{
   background:var(--card);
   padding:20px;
   border-radius:15px;
+  line-height:1.6;
   transition:0.3s;
 }
 
@@ -102,6 +111,14 @@ header img{
   transform:translateY(-5px);
 }
 
+/* Grid */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+
+/* Buttons */
 .btn{
   background:#6a5af9;
   color:white;
@@ -109,19 +126,42 @@ header img{
   border-radius:6px;
   display:inline-block;
   margin-top:10px;
+  text-decoration:none;
 }
 
+.btn:hover{
+  background:#5545eb;
+}
+
+/* Skills */
 .skill{margin:15px 0;}
 .bar{height:10px;background:#ddd;border-radius:10px;}
 .progress{height:10px;background:#6a5af9;border-radius:10px;}
 
-.social a{
-  margin:10px;
-  font-size:24px;
-  color:var(--text);
+/* Social */
+.social{
+  margin-top:15px;
 }
 
-footer{text-align:center;padding:20px;}
+.social a{
+  margin:10px;
+  font-size:22px;
+  text-decoration:none;
+}
+
+/* Form */
+form input,form textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+}
 </style>
 </head>
 
@@ -133,16 +173,13 @@ footer{text-align:center;padding:20px;}
 
 <div class="profile-container">
 <div class="profile-card">
-
 <div class="front">
-<img src="profile.jpg" alt="profile">
+<img src="profile.jpg">
 </div>
-
 <div class="back">
 <h3>Arun Kumar</h3>
 <p>Java Developer</p>
 </div>
-
 </div>
 </div>
 
@@ -150,8 +187,8 @@ footer{text-align:center;padding:20px;}
 <h2 id="typing"></h2>
 
 <div class="social">
-<a href="https://www.linkedin.com/in/arun-kumar-reddy-konkala-965804333" target="_blank">🔗</a>
-<a href="https://github.com/ARUNREDDY1777" target="_blank">💻</a>
+<a href="https://www.linkedin.com/in/arun-kumar-reddy-konkala-965804333" target="_blank">LinkedIn</a>
+<a href="https://github.com/ARUNREDDY1777" target="_blank">GitHub</a>
 </div>
 
 </header>
@@ -159,63 +196,87 @@ footer{text-align:center;padding:20px;}
 <section data-aos="fade-up">
 <h2>Experience</h2>
 <div class="card">
-<p> – Worked on UI design, JAVA Full Stack Application.</p>
+<p><b> Profile Summary</b><br>
+Worked on UI design and development of full-stack applications. 
+Gained experience in frontend, backend integration, and debugging.</p>
 </div>
 </section>
 
 <section data-aos="fade-up">
 <h2>Skills</h2>
 <div class="card">
-<div class="skill"><p>Java</p><div class="bar"><div class="progress" style="width:90%"></div></div></div>
-<div class="skill"><p>SQL</p><div class="bar"><div class="progress" style="width:85%"></div></div></div>
+
+<div class="skill">
+<p>Java</p>
+<div class="bar"><div class="progress" style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+<p>SQL</p>
+<div class="bar"><div class="progress" style="width:85%"></div></div>
+</div>
+
+<div class="skill">
+<p>HTML/CSS</p>
+<div class="bar"><div class="progress" style="width:80%"></div></div>
+</div>
+
 </div>
 </section>
 
 <section data-aos="fade-up">
 <h2>GitHub Stats</h2>
-<img src="https://github-readme-stats.vercel.app/api?username=ARUNREDDY1777&show_icons=true">
+<img src="https://github-readme-stats.vercel.app/api?username=ARUNREDDY1777&show_icons=true&theme=tokyonight">
+<br><br>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ARUNREDDY1777&layout=compact&langs_count=6&hide=cpp">
 </section>
 
 <section data-aos="fade-up">
 <h2>Projects</h2>
+
 <div class="projects-grid">
 
 <div class="card">
-<h3>Organic Store</h3>
-  <p>Full-stack organic products store website.A complete online organic products store for user experience.</p>
-<a class="btn" href="https://arunreddy1777.github.io/organic-products/" target="_blank">View</a>
+<h3>🌱 Organic Store Website</h3>
+<p>Developed a responsive e-commerce website with product listing, search, and cart system.</p>
+<p><b>Tech:</b> HTML, CSS, JavaScript</p>
+<a class="btn" href="https://arunreddy1777.github.io/organic-products/" target="_blank">View Project</a>
 </div>
 
 <div class="card">
-<h3>Pulmonary App</h3>
-  <h4>Developed a healthcare mobile application focused on pulmonary health monitoring.
-    Published the application on the Google Play Store, demonstrating end-to-end development capability.
-  </h4>
+<h3>🫁 Pulmonary App</h3>
+<p>Healthcare mobile app published on Play Store for pulmonary monitoring.</p>
+<p><b>Tech:</b> Android, Java</p>
 <a class="btn" href="https://play.google.com/store/apps/details?id=com.fit.pulmonary" target="_blank">View App</a>
 </div>
-  <div class="card">
-<h3>Factorial calculator</h3>
-    <p>Simple calculator using JavaScript.Built a simple and interactive web-based calculator to compute factorial values dynamically.</p>
-<a class="btn" href="https://arunreddy1777.github.io/organic-products/" target="_blank">View web</a>
+
+<div class="card">
+<h3>🧮 Factorial Calculator</h3>
+<p>Interactive web app for factorial calculations.</p>
+<p><b>Tech:</b> HTML, CSS, JavaScript</p>
+<a class="btn" href="https://arunreddy1777.github.io/Factorial_calculator/" target="_blank">View Project</a>
 </div>
-  <div class="card">
-<h3>fitLife Hub</h3>
-    <h4>Designed a modern fitness application UI prototype using Figma.</h4>
-<a class="btn" href="https://www.figma.com/proto/mzKe4C760c12gAOyzu0Rfb/Fitlife_Hub?node-id=154-205&p=f&t=jf7vmCu9ZiodNtP8-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=154%3A205&show-proto-sidebar=1" target="_blank" rel="noopener">Open in Figma</a>
+
+<div class="card">
+<h3>💪 FitLife Hub UI</h3>
+<p>Fitness app UI design with modern UX.</p>
+<p><b>Tool:</b> Figma</p>
+<a class="btn" href="https://www.figma.com/proto/mzKe4C760c12gAOyzu0Rfb/Fitlife_Hub" target="_blank">View Design</a>
 </div>
-  <div class="card">
-    <h3>Pulmonary UI (Figma)</h3> 
-    <p>Pulmonary prototype design.</p> 
-    <h4>Developed a healthcare mobile application focused on pulmonary health monitoring.
-    </h4>
-    <a class="btn" href="https://www.figma.com/proto/LlHFHRVtizhB3wXLWhK4b3/duplicate-2?node-id=1-508&t=BO9UIqUmqpZ2TASS-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A508&show-proto-sidebar=1" target="_blank" rel="noopener">Open in Figma</a> </div>
-  <div class="card">
-    <h3>One Calculator UI (Figma)</h3>
-    <p>OneCalculator UI (Figma).</p> 
-    <h4>Created a minimal and user-friendly calculator UI design using Figma.
-    Focused on simplicity, clarity, and intuitive interaction design.</h4>
-    <a class="btn" href="https://www.figma.com/proto/EFVAfj2ozA3UVqrDJIdGp5/Onecalculator?t=lcyqF6O4LnS3NoAY-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=2-2&starting-point-node-id=2%3A2" target="_blank" rel="noopener">Open in Figma</a> </div>
-  
+
+<div class="card">
+<h3>🫁 Pulmonary UI</h3>
+<p>Healthcare UI design focused on accessibility.</p>
+<p><b>Tool:</b> Figma</p>
+<a class="btn" href="https://www.figma.com/proto/LlHFHRVtizhB3wXLWhK4b3/duplicate-2" target="_blank">View Design</a>
+</div>
+
+<div class="card">
+<h3>🧮 One Calculator UI</h3>
+<p>Minimal calculator UI design.</p>
+<p><b>Tool:</b> Figma</p>
+<a class="btn" href="https://www.figma.com/proto/EFVAfj2ozA3UVqrDJIdGp5/Onecalculator" target="_blank">View Design</a>
+</div>
 
 </div>
 </section>
@@ -237,15 +298,16 @@ footer{text-align:center;padding:20px;}
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script>
 AOS.init();
 
-// DARK MODE
+// Dark mode
 function toggleMode(){
   document.body.classList.toggle("dark");
 }
 
-// TYPING
+// Typing
 const roles=["Java Developer","SQL Developer","UI/UX Designer"];
 let i=0,j=0,cur="",del=false;
 function type(){
@@ -257,7 +319,7 @@ function type(){
 }
 type();
 
-// EMAILJS
+// EmailJS
 document.getElementById("contactForm").addEventListener("submit",function(e){
   e.preventDefault();
   emailjs.send("service_rlix7a5","template_cd316z2",{
