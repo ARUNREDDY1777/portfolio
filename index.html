@@ -7,6 +7,12 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Icons -->
+<script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 (function(){ emailjs.init("_SLDS4OXHSNQW734F"); })();
@@ -26,10 +32,46 @@
 }
 
 body{
-  font-family:'Poppins',sans-serif;
+  font-family:'Poppins';
   background:var(--bg);
   color:var(--text);
   transition:0.4s;
+}
+
+.toggle{
+  position:fixed; top:20px; right:20px;
+  background:#6a5af9; color:white;
+  padding:10px; border-radius:8px;
+  cursor:pointer;
+}
+
+/* PROFILE FLIP */
+.profile-container{
+  perspective:1000px;
+  width:200px;
+  margin:auto;
+}
+
+.profile-card{
+  width:100%;
+  transform-style:preserve-3d;
+  transition:0.6s;
+}
+
+.profile-container:hover .profile-card{
+  transform:rotateY(180deg);
+}
+
+.front, .back{
+  position:absolute;
+  width:100%;
+  backface-visibility:hidden;
+}
+
+.back{
+  transform:rotateY(180deg);
+  text-align:center;
+  padding-top:60px;
 }
 
 header{
@@ -38,57 +80,26 @@ header{
 }
 
 header img{
-  width:150px;
+  width:200px;
   border-radius:50%;
 }
 
-nav{
-  text-align:center;
-  padding:10px;
-}
-
-nav a{
-  margin:10px;
-  text-decoration:none;
-  color:var(--text);
-  font-weight:bold;
-}
-
-nav a:hover{color:#6a5af9;}
-
-.toggle{
-  position:fixed;
-  right:20px;
-  top:20px;
-  cursor:pointer;
-  padding:10px;
-  background:#6a5af9;
-  color:white;
-  border-radius:8px;
-}
-
-section{
-  max-width:1000px;
-  margin:auto;
-  padding:40px;
+/* GRID */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
 
 .card{
   background:var(--card);
   padding:20px;
   border-radius:15px;
-  margin-bottom:20px;
   transition:0.3s;
 }
 
 .card:hover{
   transform:translateY(-5px);
-}
-
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
 }
 
 .btn{
@@ -98,40 +109,19 @@ section{
   border-radius:6px;
   display:inline-block;
   margin-top:10px;
-  border:none;
-  cursor:pointer;
 }
 
-.btn:hover{background:#5545eb;}
+.skill{margin:15px 0;}
+.bar{height:10px;background:#ddd;border-radius:10px;}
+.progress{height:10px;background:#6a5af9;border-radius:10px;}
 
-.skill{
-  margin:15px 0;
+.social a{
+  margin:10px;
+  font-size:24px;
+  color:var(--text);
 }
 
-.bar{
-  height:10px;
-  background:#ddd;
-  border-radius:10px;
-}
-
-.progress{
-  height:10px;
-  background:#6a5af9;
-  border-radius:10px;
-}
-
-form input, form textarea{
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-
-footer{
-  text-align:center;
-  padding:20px;
-}
+footer{text-align:center;padding:20px;}
 </style>
 </head>
 
@@ -140,99 +130,104 @@ footer{
 <div class="toggle" onclick="toggleMode()">🌙</div>
 
 <header>
-<img src="profile.jpg">
+
+<div class="profile-container">
+<div class="profile-card">
+
+<div class="front">
+<img src="profile.jpg" alt="profile">
+</div>
+
+<div class="back">
+<h3>Arun Kumar</h3>
+<p>Java Developer</p>
+</div>
+
+</div>
+</div>
+
 <h1>Konkala Arun Kumar Reddy</h1>
 <h2 id="typing"></h2>
+
+<div class="social">
+<a href="https://www.linkedin.com/in/arun-kumar-reddy-konkala-965804333" target="_blank">🔗</a>
+<a href="https://github.com/ARUNREDDY1777" target="_blank">💻</a>
+</div>
+
 </header>
 
-<nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#certifications">Certifications</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-<h2>About</h2>
+<section data-aos="fade-up">
+<h2>Experience</h2>
 <div class="card">
-<p>
-Java Developer with strong skills in SQL, Web Development, and UI/UX design. 
-Passionate about building scalable applications and solving real-world problems.
-</p>
-<button class="btn" onclick="downloadResume()">Download Resume</button>
+<p> – Worked on UI design, JAVA Full Stack Application.</p>
 </div>
 </section>
 
-<section id="skills">
+<section data-aos="fade-up">
 <h2>Skills</h2>
-
 <div class="card">
-
-<div class="skill">
-<p>Java</p>
-<div class="bar"><div class="progress" style="width:90%"></div></div>
-</div>
-
-<div class="skill">
-<p>SQL</p>
-<div class="bar"><div class="progress" style="width:85%"></div></div>
-</div>
-
-<div class="skill">
-<p>HTML/CSS</p>
-<div class="bar"><div class="progress" style="width:80%"></div></div>
-</div>
-
-<div class="skill">
-<p>UI/UX (Figma)</p>
-<div class="bar"><div class="progress" style="width:75%"></div></div>
-</div>
-
+<div class="skill"><p>Java</p><div class="bar"><div class="progress" style="width:90%"></div></div></div>
+<div class="skill"><p>SQL</p><div class="bar"><div class="progress" style="width:85%"></div></div></div>
 </div>
 </section>
 
-<section id="projects">
-<h2>Projects</h2>
+<section data-aos="fade-up">
+<h2>GitHub Stats</h2>
+<img src="https://github-readme-stats.vercel.app/api?username=ARUNREDDY1777&show_icons=true">
+</section>
 
+<section data-aos="fade-up">
+<h2>Projects</h2>
 <div class="projects-grid">
 
 <div class="card">
 <h3>Organic Store</h3>
-<a class="btn" href="https://arunreddy1777.github.io/organic-products/" target="_blank">View Project</a>
+  <p>Full-stack organic products store website.A complete online organic products store for user experience.</p>
+<a class="btn" href="https://arunreddy1777.github.io/organic-products/" target="_blank">View</a>
 </div>
 
 <div class="card">
-<h3>Factorial App</h3>
-<a class="btn" href="https://arunreddy1777.github.io/Factorial_calculator/" target="_blank">View Project</a>
+<h3>Pulmonary App</h3>
+  <h4>Developed a healthcare mobile application focused on pulmonary health monitoring.
+    Published the application on the Google Play Store, demonstrating end-to-end development capability.
+  </h4>
+<a class="btn" href="https://play.google.com/store/apps/details?id=com.fit.pulmonary" target="_blank">View App</a>
 </div>
+  <div class="card">
+<h3>Factorial calculator</h3>
+    <p>Simple calculator using JavaScript.Built a simple and interactive web-based calculator to compute factorial values dynamically.</p>
+<a class="btn" href="https://arunreddy1777.github.io/organic-products/" target="_blank">View web</a>
+</div>
+  <div class="card">
+<h3>fitLife Hub</h3>
+    <h4>Designed a modern fitness application UI prototype using Figma.</h4>
+<a class="btn" href="https://www.figma.com/proto/mzKe4C760c12gAOyzu0Rfb/Fitlife_Hub?node-id=154-205&p=f&t=jf7vmCu9ZiodNtP8-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=154%3A205&show-proto-sidebar=1" target="_blank" rel="noopener">Open in Figma</a>
+</div>
+  <div class="card">
+    <h3>Pulmonary UI (Figma)</h3> 
+    <p>Pulmonary prototype design.</p> 
+    <h4>Developed a healthcare mobile application focused on pulmonary health monitoring.
+    </h4>
+    <a class="btn" href="https://www.figma.com/proto/LlHFHRVtizhB3wXLWhK4b3/duplicate-2?node-id=1-508&t=BO9UIqUmqpZ2TASS-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A508&show-proto-sidebar=1" target="_blank" rel="noopener">Open in Figma</a> </div>
+  <div class="card">
+    <h3>One Calculator UI (Figma)</h3>
+    <p>OneCalculator UI (Figma).</p> 
+    <h4>Created a minimal and user-friendly calculator UI design using Figma.
+    Focused on simplicity, clarity, and intuitive interaction design.</h4>
+    <a class="btn" href="https://www.figma.com/proto/EFVAfj2ozA3UVqrDJIdGp5/Onecalculator?t=lcyqF6O4LnS3NoAY-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=2-2&starting-point-node-id=2%3A2" target="_blank" rel="noopener">Open in Figma</a> </div>
+  
 
 </div>
 </section>
 
-<section id="certifications">
-<h2>Certifications</h2>
-
-<div class="card">
-<h3>☕ Oracle Java SE 17</h3>
-<p>Strong knowledge in OOP, Collections, Streams.</p>
-</div>
-
-<div class="card">
-<h3>☁ Salesforce Agentforce Specialist</h3>
-<p>CRM & automation expertise.</p>
-</div>
-
-</section>
-
-<section id="contact">
+<section data-aos="fade-up">
 <h2>Contact</h2>
 <div class="card">
 <form id="contactForm">
-<input type="text" id="name" placeholder="Your Name" required>
-<input type="email" id="email" placeholder="Your Email" required>
-<textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-<button class="btn" type="submit">Send Message</button>
+<input type="text" id="name" placeholder="Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<textarea id="message" placeholder="Message"></textarea>
+<button class="btn">Send</button>
 </form>
 </div>
 </section>
@@ -241,58 +236,35 @@ Passionate about building scalable applications and solving real-world problems.
 © 2026 Arun Kumar Reddy
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
+AOS.init();
+
 // DARK MODE
 function toggleMode(){
   document.body.classList.toggle("dark");
 }
 
-// DOWNLOAD RESUME
-function downloadResume(){
-  window.open("https://drive.google.com/file/d/1xyhawmkXmZsYik73JzTFAPpOQmTVRwI1/view");
-}
-
-// TYPING EFFECT
-const text = ["Java Developer", "SQL Developer", "UI/UX Designer"];
-let i=0, j=0, current="", isDeleting=false;
-
+// TYPING
+const roles=["Java Developer","SQL Developer","UI/UX Designer"];
+let i=0,j=0,cur="",del=false;
 function type(){
-  current = text[i];
-  
-  if(!isDeleting){
-    document.getElementById("typing").innerHTML = current.substring(0,j++);
-    if(j>current.length){
-      isDeleting=true;
-      setTimeout(type,1000);
-      return;
-    }
-  } else {
-    document.getElementById("typing").innerHTML = current.substring(0,j--);
-    if(j==0){
-      isDeleting=false;
-      i=(i+1)%text.length;
-    }
-  }
+  cur=roles[i];
+  document.getElementById("typing").innerHTML=cur.substring(0,j);
+  if(!del){j++; if(j>cur.length){del=true;setTimeout(type,1000);return;}}
+  else{j--; if(j==0){del=false;i=(i+1)%roles.length;}}
   setTimeout(type,100);
 }
 type();
 
 // EMAILJS
-document.getElementById('contactForm').addEventListener('submit', function(e){
+document.getElementById("contactForm").addEventListener("submit",function(e){
   e.preventDefault();
-
-  emailjs.send('service_rlix7a5', 'template_cd316z2', {
-    name: document.getElementById('name').value,
-    email: document.getElementById('email').value,
-    message: document.getElementById('message').value
-  })
-  .then(()=>{
-    alert("✅ Message Sent Successfully!");
-    document.getElementById('contactForm').reset();
-  })
-  .catch(()=>{
-    alert("❌ Failed to send message");
-  });
+  emailjs.send("service_rlix7a5","template_cd316z2",{
+    name:name.value,
+    email:email.value,
+    message:message.value
+  }).then(()=>alert("Message Sent!"));
 });
 </script>
 
